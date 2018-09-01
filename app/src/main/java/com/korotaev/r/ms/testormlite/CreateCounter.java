@@ -64,6 +64,9 @@ public class CreateCounter extends OrmLiteBaseActivity<DatabaseHelper> {
 				try {
 
 					Messagetype msgType = saveMessagetypeToObj("public msg");
+					Dao<Messagetype, Integer> managerMessagetype = getHelper().getMessagetypeDao();
+					managerMessagetype.create(msgType);
+
 					ClickCount clickCount = saveToObj();
 					Dao<ClickCount, Integer> dao = getHelper().getClickDao();
 					boolean alreadyCreated = false;
