@@ -10,6 +10,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,6 +20,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+//import org.springframework.transaction.annotation.Transactional;
 
 @Entity(name = "tooltypes")
 @Table(name = "tooltypes")
@@ -36,7 +39,7 @@ public class Tooltypes implements Serializable {
     @ForeignCollectionField
     private ForeignCollection<Tool> toolsById;
 
-    Tooltypes() {
+    public Tooltypes() {
     }
 
     @Id

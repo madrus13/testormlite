@@ -38,7 +38,7 @@ public class Requeststatus implements Serializable {
     @ForeignCollectionField
     private ForeignCollection<Request> requestsById;
 
-    Requeststatus() {
+    public Requeststatus() {
     }
 
     @Id

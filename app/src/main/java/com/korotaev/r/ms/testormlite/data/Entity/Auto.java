@@ -11,13 +11,14 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 //import org.springframework.transaction.annotation.Transactional;
-
 
 @Entity(name = "auto")
 @Table(name = "auto")
@@ -31,20 +32,22 @@ public class Auto implements Serializable {
     private String name;
     @DatabaseField
     private Byte haveCable;
+    @DatabaseField
     private Long user;
     @DatabaseField
     private Byte isDeleted;
+    @DatabaseField
     private Long transmissionType;
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private User userByUser;
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private TransmissionType transmissionTypeByTransmissionType;
 
-    Auto() {
+    public  Auto() {
     }
-
     @Id
     @Column(name = "Id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }

@@ -35,16 +35,21 @@ public class Message implements Serializable {
     private Timestamp creationDate;
     @DatabaseField
     private Timestamp modifyDate;
+    @DatabaseField
     private Long createUser;
+    @DatabaseField
     private Long userRx;
     @DatabaseField
     private String messagePhotoPath;
     @DatabaseField
     private Byte isDeleted;
+    @DatabaseField
     private Long request;
+    @DatabaseField
     private Long type;
+    @DatabaseField
     private Long region;
-    @DatabaseField(canBeNull = true,  foreign = true, foreignAutoRefresh = true)
+    @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private User userByUserRx;
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private User userByCreateUser;
@@ -55,7 +60,8 @@ public class Message implements Serializable {
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private Region regionByRegion;
 
-    Message() {
+
+    public  Message() {
     }
 
     @Id

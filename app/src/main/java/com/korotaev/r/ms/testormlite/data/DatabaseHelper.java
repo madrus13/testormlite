@@ -38,8 +38,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Suggested Copy/Paste code. Everything from here to the done block.
      ************************************************/
 
-    private static final String DATABASE_NAME = "ormDB.db";
-    private static final int DATABASE_VERSION = 14;
+    private static final String DATABASE_NAME = "ormDB_16.db";
+    private static final int DATABASE_VERSION = 17;
 
 	private Dao<ClickGroup, Integer> groupDao;
 	private Dao<ClickCount, Integer> clickDao;
@@ -87,8 +87,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Message.class);
             TableUtils.createTable(connectionSource, Request.class);
             TableUtils.createTable(connectionSource, Session.class);
-
-
 
 
         } catch (SQLException e) {

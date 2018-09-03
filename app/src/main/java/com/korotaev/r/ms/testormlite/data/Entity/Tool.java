@@ -18,6 +18,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+//import org.springframework.transaction.annotation.Transactional;
+
 @Entity(name = "tool")
 @Table(name = "tool")
 @Transactional
@@ -26,7 +28,9 @@ import javax.persistence.Table;
 public class Tool implements Serializable {
     @DatabaseField(generatedId = true)
     private Long id;
+    @DatabaseField
     private Long type;
+    @DatabaseField
     private Long user;
     @DatabaseField
     private Byte isDeleted;
@@ -35,7 +39,7 @@ public class Tool implements Serializable {
     @DatabaseField(canBeNull = true, foreign = true)
     private User userByUser;
 
-    Tool() {
+    public Tool() {
     }
 
     @Id

@@ -2,7 +2,6 @@ package com.korotaev.r.ms.testormlite.data.Entity;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.korotaev.r.ms.testormlite.data.Transactional;
 
@@ -17,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+//import org.springframework.transaction.annotation.Transactional;
 
 @Entity(name = "userstatus")
 @Table(name = "userstatus")
@@ -36,10 +37,9 @@ public class Userstatus implements Serializable {
     public static final Long StatusNoActive = 4L;
 
     @JsonIgnore
-    @ForeignCollectionField
     private ForeignCollection<User> usersById;
 
-     Userstatus() {
+    public Userstatus() {
     }
 
     @Id

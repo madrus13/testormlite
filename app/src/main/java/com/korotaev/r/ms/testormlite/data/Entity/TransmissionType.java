@@ -19,6 +19,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//import org.springframework.transaction.annotation.Transactional;
+
 @Entity(name = "transmissiontype")
 @Table(name = "transmissiontype")
 @Transactional
@@ -35,7 +37,7 @@ public class TransmissionType implements Serializable {
     @ForeignCollectionField
     private ForeignCollection<Auto> autosById;
 
-    TransmissionType() {
+    public TransmissionType() {
     }
 
     @Id

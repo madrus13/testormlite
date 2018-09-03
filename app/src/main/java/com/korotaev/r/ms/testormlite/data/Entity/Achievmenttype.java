@@ -22,8 +22,8 @@ import javax.persistence.Table;
 
 //import org.springframework.transaction.annotation.Transactional;
 
-@Entity(name = "Achievmenttype")
-@Table(name = "Achievmenttype")
+@Entity(name = "achievmenttype")
+@Table(name  = "achievmenttype")
 @Transactional
 @JsonIgnoreProperties(value = { "handler", "hibernateLazyInitializer" })
 @DatabaseTable
@@ -38,7 +38,7 @@ public class Achievmenttype implements Serializable {
     @ForeignCollectionField
     private ForeignCollection<Achievement> achievementsById;
 
-    Achievmenttype() {
+    public Achievmenttype() {
     }
 
     @Id

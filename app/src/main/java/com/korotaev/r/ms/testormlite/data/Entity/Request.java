@@ -1,7 +1,7 @@
 package com.korotaev.r.ms.testormlite.data.Entity;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.korotaev.r.ms.testormlite.data.Transactional;
 
@@ -22,6 +22,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+//import org.springframework.transaction.annotation.Transactional;
 
 @Entity(name = "request")
 @Table(name = "request")
@@ -45,17 +47,22 @@ public class Request implements Serializable {
     private String requestPhotoPath;
     @DatabaseField
     private Byte isDeleted;
+    @DatabaseField
     private Long resolvedByUser;
+    @DatabaseField
     private Long creationUser;
     @DatabaseField
     private Double latitude;
     @DatabaseField
     private Double longitude;
+    @DatabaseField
     private Long type;
+    @DatabaseField
     private Long status;
+    @DatabaseField
     private Long region;
-    @ForeignCollectionField
-    private Collection<Message> messagesById;
+    @DatabaseField(canBeNull = true, foreign = true)
+    private ForeignCollection<Message> messagesById;
     @DatabaseField(canBeNull = true, foreign = true)
     private User userByResolvedByUser;
     @DatabaseField(canBeNull = true, foreign = true)
@@ -67,7 +74,7 @@ public class Request implements Serializable {
     @DatabaseField(canBeNull = true, foreign = true)
     private Requeststatus requeststatusByStatus;
 
-    Request() {
+    public Request() {
     }
 
     @Id
@@ -285,7 +292,7 @@ public class Request implements Serializable {
         return messagesById;
     }
 
-    public void setMessagesById(Collection<Message> messagesById) {
+    public void setMessagesById(ForeignCollection<Message> messagesById) {
         this.messagesById = messagesById;
     }
 

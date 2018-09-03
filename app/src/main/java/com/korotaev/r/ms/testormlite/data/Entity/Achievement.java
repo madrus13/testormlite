@@ -30,15 +30,18 @@ public class Achievement implements Serializable {
     private Long id;
     @DatabaseField
     private String name;
+    @DatabaseField
     private Long user;
     @DatabaseField
     private Byte isDeleted;
+    @DatabaseField
     private Long type;
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private Achievmenttype achievmenttypeByType;
 
-    Achievement() {
+    public Achievement() {
     }
+
     @Id
     @Column(name = "Id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

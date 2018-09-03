@@ -19,6 +19,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+//import org.springframework.transaction.annotation.Transactional;
+
 @Entity(name = "session")
 @Table(name = "session")
 @Transactional
@@ -31,11 +33,12 @@ public class Session implements Serializable {
     private String token;
     @DatabaseField
     private Timestamp creationDate;
+    @DatabaseField
     private Long user;
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private User userByUser;
 
-    Session() {
+    public Session() {
     }
 
     @Id

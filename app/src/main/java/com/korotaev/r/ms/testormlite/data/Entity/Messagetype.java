@@ -2,7 +2,6 @@ package com.korotaev.r.ms.testormlite.data.Entity;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.korotaev.r.ms.testormlite.data.Transactional;
 
@@ -20,8 +19,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//import org.springframework.transaction.annotation.Transactional;
-
 @Entity(name = "messagetype")
 @Table(name = "messagetype")
 @Transactional
@@ -35,7 +32,6 @@ public class Messagetype implements Serializable {
     @DatabaseField
     private Byte isDeleted;
     @JsonIgnore
-    @ForeignCollectionField
     private ForeignCollection<Message> messagesById;
 
     public Messagetype() {

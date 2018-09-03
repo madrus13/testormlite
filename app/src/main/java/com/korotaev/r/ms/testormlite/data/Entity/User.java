@@ -24,6 +24,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//import org.springframework.transaction.annotation.Transactional;
+
 @Entity(name = "user")
 @Table(name = "user")
 @Transactional
@@ -42,6 +44,8 @@ public class User implements Serializable {
     @DatabaseField
     private String email;
     @DatabaseField
+    private String phone;
+    @DatabaseField
     private Byte isApprovedUser;
     @DatabaseField
     private Timestamp creationDate;
@@ -49,7 +53,9 @@ public class User implements Serializable {
     private Timestamp modifyDate;
     @DatabaseField
     private Byte isDeleted;
+    @DatabaseField
     private Long status;
+    @DatabaseField
     private Long region;
     @ForeignCollectionField
     private ForeignCollection<Auto> autosById;
@@ -73,7 +79,7 @@ public class User implements Serializable {
     @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private Region regionByRegion;
 
-    User() {
+    public User() {
     }
 
     @Id
@@ -126,6 +132,16 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Basic
+    @Column(name = "Phone", nullable = true, length = 20)
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Basic
@@ -230,7 +246,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "userByUser")
     @JsonIgnore
-    public ForeignCollection<Auto> getAutosById() {
+    public Collection<Auto> getAutosById() {
         return autosById;
     }
 
@@ -260,7 +276,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "userByCreationUser")
     @JsonIgnore
-    public ForeignCollection<Request> getRequestsById_0() {
+    public Collection<Request> getRequestsById_0() {
         return requestsById_0;
     }
 
@@ -270,7 +286,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "userByUser")
     @JsonIgnore
-    public ForeignCollection<Session> getSessionsById() {
+    public Collection<Session> getSessionsById() {
         return sessionsById;
     }
 
@@ -280,7 +296,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "userByUser")
     @JsonIgnore
-    public ForeignCollection<Tool> getToolsById() {
+    public Collection<Tool> getToolsById() {
         return toolsById;
     }
 

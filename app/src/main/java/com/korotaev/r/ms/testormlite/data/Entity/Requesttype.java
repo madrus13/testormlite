@@ -18,6 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//import org.springframework.transaction.annotation.Transactional;
+
 @Entity(name = "requesttype")
 @Table(name = "requesttype")
 @Transactional
@@ -43,7 +45,7 @@ public class Requesttype implements Serializable {
     @ForeignCollectionField
     private ForeignCollection<Request> requestsById;
 
-    Requesttype() {
+    public Requesttype() {
     }
 
     @Id

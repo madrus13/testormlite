@@ -35,12 +35,12 @@ public class Region implements Serializable  {
 
     @JsonIgnore
     @ForeignCollectionField
-    private  ForeignCollection<Message> messagesById;
+    private ForeignCollection<Message> messagesById;
     @JsonIgnore
     @ForeignCollectionField
-    private ForeignCollection<User> usersById;
+    private  ForeignCollection<User> usersById;
 
-    Region() {
+    public Region() {
     }
 
     @Id
