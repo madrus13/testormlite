@@ -2,6 +2,7 @@ package com.korotaev.r.ms.testormlite.data.Entity;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.korotaev.r.ms.testormlite.data.Transactional;
 
@@ -31,7 +32,9 @@ public class Messagetype implements Serializable {
     private String name;
     @DatabaseField
     private Byte isDeleted;
+
     @JsonIgnore
+    @ForeignCollectionField
     private ForeignCollection<Message> messagesById;
 
     public Messagetype() {

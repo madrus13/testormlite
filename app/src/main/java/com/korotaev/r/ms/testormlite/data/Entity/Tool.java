@@ -34,9 +34,9 @@ public class Tool implements Serializable {
     private Long user;
     @DatabaseField
     private Byte isDeleted;
-    @DatabaseField(canBeNull = true, foreign = true)
+    @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private Tooltypes tooltypesByType;
-    @DatabaseField(canBeNull = true, foreign = true)
+    @DatabaseField(canBeNull = true, foreign = true, foreignAutoRefresh = true)
     private User userByUser;
 
     public Tool() {

@@ -57,6 +57,7 @@ public class User implements Serializable {
     private Long status;
     @DatabaseField
     private Long region;
+    @JsonIgnore
     @ForeignCollectionField
     private ForeignCollection<Auto> autosById;
     @JsonIgnore

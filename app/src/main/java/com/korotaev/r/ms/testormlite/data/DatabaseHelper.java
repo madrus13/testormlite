@@ -38,8 +38,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      * Suggested Copy/Paste code. Everything from here to the done block.
      ************************************************/
 
-    private static final String DATABASE_NAME = "ormDB_16.db";
-    private static final int DATABASE_VERSION = 17;
+    private static final String DATABASE_NAME = "ormDB_19.db";
+    private static final int DATABASE_VERSION = 19;
 
 	private Dao<ClickGroup, Integer> groupDao;
 	private Dao<ClickCount, Integer> clickDao;
@@ -69,29 +69,92 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqliteDatabase, ConnectionSource connectionSource) {
-        try {
-            TableUtils.createTable(connectionSource, ClickGroup.class);
-            TableUtils.createTable(connectionSource, ClickCount.class);
-            TableUtils.createTable(connectionSource, Tooltypes.class);
-            TableUtils.createTable(connectionSource, Achievmenttype.class);
-            TableUtils.createTable(connectionSource, Messagetype.class);
-            TableUtils.createTable(connectionSource, Requeststatus.class);
-            TableUtils.createTable(connectionSource, Requesttype.class);
-            TableUtils.createTable(connectionSource, Userstatus.class);
-            TableUtils.createTable(connectionSource, TransmissionType.class);
-            TableUtils.createTable(connectionSource, Tool.class);
-            TableUtils.createTable(connectionSource, Achievement.class);
-            TableUtils.createTable(connectionSource, Region.class);
-            TableUtils.createTable(connectionSource, User.class);
-            TableUtils.createTable(connectionSource, Auto.class);
-            TableUtils.createTable(connectionSource, Message.class);
-            TableUtils.createTable(connectionSource, Request.class);
-            TableUtils.createTable(connectionSource, Session.class);
+		try {
+			TableUtils.createTable(connectionSource, ClickGroup.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, ClickCount.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Tooltypes.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Achievmenttype.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Messagetype.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Requeststatus.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Requesttype.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Userstatus.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, TransmissionType.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Tool.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Achievement.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Region.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, User.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Auto.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Message.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Request.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
+		try {
+			TableUtils.createTable(connectionSource, Session.class);
+		} catch (SQLException e) {
+			Log.e(DatabaseHelper.class.getName(), "Unable to create database", e);
+		}
 
-
-        } catch (SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "Unable to create datbases", e);
-        }
     }
 
     @Override
